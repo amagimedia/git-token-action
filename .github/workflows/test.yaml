@@ -3,13 +3,17 @@ on: [push]
 
 jobs:
   test-action:
-    runs-on: amagi-amd64
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Run Docker Action
         id: get-token
         uses: amagimedia/git-token-action@main
+        with:            
+            github-app-id: ${{ secrets.APP_ID }}
+            github-installation-id: ${{ secrets.INSTALLATION_ID }}
+            github-pvt-key: ${{ secrets.PVT_KEY }}
 
       - name: Use the Injected Token
         run: |
