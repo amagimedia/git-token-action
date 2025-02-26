@@ -25,6 +25,6 @@ ENV GITHUB_ENV=/github_env
 COPY Dockerfile ./
 COPY ./utilities ./utilities
 COPY main.py ./
-COPY --from=builder $WORKDIR/packages/ $WORKDIR/
+COPY --from=builder $WORKDIR/packages/ /usr/lib/python3.11/site-packages/
 
 ENTRYPOINT ["python", "main.py"]
