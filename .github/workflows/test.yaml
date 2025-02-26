@@ -1,0 +1,17 @@
+name: "Test GitHub Token Injection"
+on: [push]
+
+jobs:
+  test-action:
+    runs-on: amagi-amd64
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Docker Action
+        id: get-token
+        uses: amagimedia/git-token-action@main
+
+      - name: Use the Injected Token
+        run: |
+          echo "Using the injected token..."
+          curl -H "Authorization: Bearer $AMAGI_GITHUB_TOKEN" https://api.github.com/user

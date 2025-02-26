@@ -1,0 +1,27 @@
+name: Amagi Global Git Token (Read)
+description: Sets up readonly git token and helps in injecting token as masked environment variables for workflows to consume.
+inputs:    
+  log-level:
+    description: Log Level for the action
+    required: false
+    default: INFO
+  github-app-id:
+    description: Github App ID to use for fetching Git Token
+    required: true
+  github-installation-id:
+    description: Github App Installation ID to use for fetching Git Token
+    required: true
+  github-pvt-key:
+    description: Github App Private Key to use for fetching Git Token
+    required: true
+branding:
+  icon: 'unlock'
+  color: 'white'
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    LOG_LEVEL: ${{ inputs.log-level }}
+    GITHUB_APP_ID: ${{ inputs.github-app-id }}
+    GITHUB_INSTALLATION_ID: ${{ inputs.github-installation-id }}
+    GITHUB_PVT_KEY: ${{ inputs.github-pvt-key }}    
