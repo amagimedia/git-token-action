@@ -1,5 +1,6 @@
 name: "Test GitHub Token Injection"
-on: [push]
+on:    
+  workflow_dispatch:
 
 jobs:
   test-action:
@@ -9,7 +10,7 @@ jobs:
 
       - name: Run Docker Action
         id: get-token
-        uses: amagimedia/git-token-action@main
+        uses: ghcr.io/amagimedia/git-token-action:latest
         with:            
             github-app-id: ${{ secrets.APP_ID }}
             github-installation-id: ${{ secrets.INSTALLATION_ID }}
