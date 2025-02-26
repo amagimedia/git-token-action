@@ -10,7 +10,7 @@ jobs:
 
       - name: Run Docker Action
         id: get-token
-        uses: ghcr.io/amagimedia/git-token-action:latest
+        uses: amagimedia/git-token-action@main
         with:            
             github-app-id: ${{ secrets.APP_ID }}
             github-installation-id: ${{ secrets.INSTALLATION_ID }}
