@@ -23,7 +23,7 @@ branding:
   color: 'white'
 runs:
   using: "docker"
-  image: "/Dockerfile"
+  image: "Dockerfile"
   env:
     LOG_LEVEL: ${{ inputs.log-level }}
     GITHUB_APP_ID: ${{ inputs.github-app-id }}
