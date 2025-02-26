@@ -14,6 +14,10 @@ inputs:
   github-pvt-key:
     description: Github App Private Key to use for fetching Git Token
     required: true
+  github-token-expiry-seconds:
+    description: Github Token Expiry Seconds
+    required: false
+    default: "300"
 branding:
   icon: 'unlock'
   color: 'white'
@@ -23,5 +27,6 @@ runs:
   env:
     LOG_LEVEL: ${{ inputs.log-level }}
     GITHUB_APP_ID: ${{ inputs.github-app-id }}
-    GITHUB_INSTALLATION_ID: ${{ inputs.github-installation-id }}
-    GITHUB_PVT_KEY: ${{ inputs.github-pvt-key }}    
+    GITHUB_APP_INSTALLATION_ID: ${{ inputs.github-installation-id }}
+    GITHUB_APP_PRIVATE_KEY: ${{ inputs.github-pvt-key }}
+    GITHUB_TOKEN_EXPIRY_SECONDS: ${{ inputs.github-token-expiry-seconds }}

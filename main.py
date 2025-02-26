@@ -16,7 +16,7 @@ if __name__=="__main__":
     ev_values=EVValidator(**ev_configs)
 
     git = GitApis(
-        private_key=ev_values.GITHUB_PRIVATE_KEY, 
+        private_key=ev_values.GITHUB_APP_PRIVATE_KEY, 
         app_id=ev_values.GITHUB_APP_ID, 
         app_installation_id=ev_values.GITHUB_APP_INSTALLATION_ID, 
         token_expiry_seconds=ev_values.GITHUB_TOKEN_EXPIRY_SECONDS
